@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-express';
 export const typeDef = gql`
     type Address {
         name: String
+        valid: String
         ping: Ping
         rdap: RDAP
         geoip: GeoIP
