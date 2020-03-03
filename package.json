@@ -1,0 +1,28 @@
+{
+  "name": "turbine-practical",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npm run build:dev",
+    "build:dev": "nodemon src/server.ts --exec ts-node src/server.ts -e ts,graphql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.10.1",
+    "express": "^4.17.1",
+    "geoip-lite": "^1.4.0",
+    "graphql": "^14.6.0",
+    "http": "0.0.0",
+    "ncp": "^2.0.0",
+    "tcp-ping": "^0.1.1",
+    "whois-rdap": "^1.4.5"
+  }
+}
