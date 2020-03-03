@@ -1,36 +1,34 @@
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const addressResolvers = {
     Query: {
-        checkAddress: (parent: any, args: any, context: any, info: any) => {
-            const { address } = args; 
+        checkAddress: (parent: any, args: any): { name: any } => {
+            const { address } = args;
             return { name: address };
         },
-        checkAddresses: (parent: any, args: any, context: any, info: any) => {
-            const { addresses } = args; 
-            const res = addresses.map((a: String) => ({ name: a })); 
+        checkAddresses: (parent: any, args: any): [any] => {
+            const { addresses } = args;
+            const res = addresses.map((a: string) => ({ name: a }));
             return res;
         },
     },
     Address: {
-        name: (root: any, args: any, context: any) => { 
-            return root.name
+        name: (root: any): any => {
+            return root.name;
         },
-        ping: (root: any, args: any, context: any) => { 
+        ping: (root: any, args: any, context: any): any => {
             context.address = root.name;
-            return {}; 
+            return {};
         },
-        geoip: (root: any, args: any, context: any) => { 
+        geoip: (root: any, args: any, context: any): any => {
             context.address = root.name;
-            return {}; 
+            return {};
         },
-        rdap: (root: any, args: any, context: any) => { 
+        rdap: (root: any, args: any, context: any): any => {
             context.address = root.name;
-            return {}; 
-        }
-    }
+            return {};
+        },
+    },
 };
 
-export {
-    addressResolvers,
-}
+export { addressResolvers };

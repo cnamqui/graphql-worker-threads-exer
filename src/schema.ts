@@ -1,4 +1,4 @@
-// schema.ts 
+// schema.ts
 import { typeDefs } from './typeDefs';
 import { makeExecutableSchema } from 'graphql-tools';
 import { resolvers } from './resolvers';
