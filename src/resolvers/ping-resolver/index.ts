@@ -19,7 +19,7 @@ const pingResolvers = {
                 const result = await pingResolver.resolve(address);
                 return result;
             } catch (e) {
-                console.log(`An error has occured ${e}`);
+                console.log(`An error has occured:\n ${e}`);
                 throw e;
             }
         },

@@ -13,3 +13,7 @@ using prettier plugin for eslint as well
 
 ## Issues
 the RDAP service will sometimes time out and/or exit with a non-zero code.
+
+## Worker Threads
+The built-in node module "worker_threads" has been used to separate each service into their own threads as part of the requirements for this exercise. See src/resolvers/common/resolverBase.ts
+ 
