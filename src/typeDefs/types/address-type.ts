@@ -14,3 +14,8 @@ export const typeDef = gql`
         checkAddresses(addresses: [String]!): [Address]
     }
 `;
+
+export default interface Address {
+    name: string;
+    valid: string;
+}

@@ -20,3 +20,22 @@ export const typeDef = gql`
         response: RDAPResponse
     }
 `;
+
+export interface RDAPResponse {
+    rdapConformance: [string];
+    handle: string;
+    startAddress: string;
+    endAddress: string;
+    ipVersion: string;
+    name: string;
+    type: string;
+    parentHandle: string;
+    port43: string;
+    status: [string];
+    objectClassName: string;
+    arin_originas0_originautnums: [number];
+}
+
+export interface RDAP {
+    response: RDAPResponse;
+}

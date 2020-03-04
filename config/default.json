@@ -1,0 +1,5 @@
+{
+    "rdapApiUri": "http://localhost:5000",
+    "geoIpApiUri": "http://localhost:5001",
+    "pingApiUri": "http://localhost:5002"
+}

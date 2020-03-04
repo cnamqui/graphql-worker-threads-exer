@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "npm run build:dev",
-    "build:dev": "nodemon src/server.ts --exec ts-node src/server.ts -e ts,graphql"
+    "build:dev": "nodemon src/server.ts --exec ts-node src/server.ts -e ts,graphql",
+    "build": "rm -rf ./dist/ && tsc",
+    "start": "node dist/start.js"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +26,9 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
+    "@types/config": "0.0.36",
     "apollo-server-express": "^2.10.1",
+    "config": "^3.3.0",
     "express": "^4.17.1",
     "geoip-lite": "^1.4.0",
     "graphql": "^14.6.0",

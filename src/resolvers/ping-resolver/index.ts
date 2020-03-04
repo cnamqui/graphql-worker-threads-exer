@@ -1,27 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import ResolverBase from '../common/resolverBase';
-
-const pingResolver = new ResolverBase('./src/resolvers/ping-resolver/ping-service.js');
+import PingService from '../../services/ping-service';
+import { PingResponse } from '../../typeDefs/types/ping-type';
 
 const pingResolvers = {
     Query: {
-        ping: async (parent: any, args: any): Promise<any> => {
+        ping: async (parent: any, args: any): Promise<PingResponse> => {
             const { address } = args;
-            const result = await pingResolver.resolve(address);
-            return result;
+            const svc = new PingService();
+            return svc.ping(address).catch(e => {
+                throw e;
+            });
         },
     },
     Ping: {
-        response: async (parent: any, args: any, context: any): Promise<any> => {
+        response: async (parent: any, args: any, context: any): Promise<PingResponse> => {
+            const svc = new PingService();
             const { address } = context;
-            try {
-                const result = await pingResolver.resolve(address);
-                return result;
-            } catch (e) {
-                console.log(`An error has occured:\n ${e}`);
+            return svc.ping(address).catch(e => {
                 throw e;
-            }
+            });
         },
     },
 };

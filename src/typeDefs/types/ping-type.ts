@@ -23,3 +23,22 @@ export const typeDef = gql`
         ping(address: String!): String
     }
 `;
+
+export interface PingResults {
+    seq: number;
+    time: number;
+}
+
+export interface PingResponse {
+    address: string;
+    port: number;
+    attempts: number;
+    avg: number;
+    max: number;
+    min: number;
+    results: [PingResults];
+}
+
+export interface Ping {
+    response: PingResponse;
+}

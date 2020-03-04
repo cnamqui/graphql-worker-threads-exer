@@ -16,3 +16,17 @@ export const typeDef = gql`
         response: GeoIPResponse
     }
 `;
+
+export interface GeoIP {
+    response: GeoIPResponse;
+}
+export interface GeoIPResponse {
+    country: string;
+    region: string;
+    eu: string;
+    timezone: string;
+    city: string;
+    ll: [number];
+    metro: number;
+    area: number;
+}

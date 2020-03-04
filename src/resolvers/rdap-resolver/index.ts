@@ -1,18 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-import ResolverBase from '../common/resolverBase';
-
-const rdapResolver = new ResolverBase<any>('./src/resolvers/rdap-resolver/rdap-service.js');
+import RDAPService from '../../services/rdap-service';
+import { RDAPResponse } from '../../typeDefs/types/rdap-type';
 
 const rdapResolvers = {
     RDAP: {
-        response: async (parent: any, args: any, context: any): Promise<any> => {
+        response: async (parent: any, args: any, context: any): Promise<RDAPResponse> => {
+            const svc = new RDAPService();
             const { address } = context;
-            const result = await rdapResolver.resolve(address);
-            if (result.error) {
-                throw result.error;
-            }
-            return result;
+            return svc.rdap(address).catch(e => {
+                throw e;
+            });
         },
     },
 };
