@@ -15,8 +15,13 @@ const pingResolvers = {
     Ping: {
         response: async (parent: any, args: any, context: any): Promise<any> => {
             const { address } = context;
-            const result = await pingResolver.resolve(address);
-            return result;
+            try {
+                const result = await pingResolver.resolve(address);
+                return result;
+            } catch (e) {
+                console.log(`An error has occured ${e}`);
+                throw e;
+            }
         },
     },
 };

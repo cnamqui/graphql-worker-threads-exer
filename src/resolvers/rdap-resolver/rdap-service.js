@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { workerData, parentPort } = require('worker_threads');
 const whois = require('whois-rdap');
 const dns = require('dns');
