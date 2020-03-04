@@ -1,6 +1,8 @@
+import { IResolvers } from 'graphql-tools';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const addressResolvers = {
+const addressResolvers: IResolvers = {
     Query: {
         checkAddress: (parent: any, args: any): { name: any } => {
             const { address } = args;

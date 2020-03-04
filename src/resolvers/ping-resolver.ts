@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import PingService from '../../services/ping-service';
-import { PingResponse } from '../../typeDefs/types/ping-type';
+import PingService from '../services/ping-service';
+import { PingResponse } from '../typeDefs/types/ping-type';
+import { IResolvers } from 'graphql-tools';
 
-const pingResolvers = {
+const pingResolvers: IResolvers = {
     Query: {
         ping: async (parent: any, args: any): Promise<PingResponse> => {
             const { address } = args;
